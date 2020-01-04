@@ -74,8 +74,8 @@ export default function Dashboard() {
               <CardIcon color="success">
                 <Store />
               </CardIcon>
-              <p className={classes.cardCategory}>Propriedades Anunciadas</p>
-              <h3 className={classes.cardTitle}>$34,245</h3>
+              <p className={classes.cardCategory}>Propriedades Anunc.</p>
+              <h3 className={classes.cardTitle}>1.245</h3>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
