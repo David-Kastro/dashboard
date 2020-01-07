@@ -20,22 +20,24 @@ import Dashboard from "@material-ui/icons/Dashboard";
 // import Person from "@material-ui/icons/Person";
 // import LibraryBooks from "@material-ui/icons/LibraryBooks";
 // import BubbleChart from "@material-ui/icons/BubbleChart";
-// import LocationOn from "@material-ui/icons/LocationOn";
+import LocationOn from "@material-ui/icons/LocationOn";
 // import Notifications from "@material-ui/icons/Notifications";
 // import Unarchive from "@material-ui/icons/Unarchive";
 // import Language from "@material-ui/icons/Language";
 // core components/views for Admin layout
 import DashboardPage from "views/Dashboard/Dashboard.js";
-// import UserProfile from "views/UserProfile/UserProfile.js";
-// import TableList from "views/TableList/TableList.js";
-// import Typography from "views/Typography/Typography.js";
-// import Icons from "views/Icons/Icons.js";
-// import Maps from "views/Maps/Maps.js";
+import Users from "views/Users/Users.js";
+import Alerts from "views/Alerts/Alerts.js";
+import Booking from "views/Booking/Booking.js";
+import Doormans from "views/Doormans/Doormans.js";
+import Maps from "views/Maps/Maps.js";
+import EstateAgents from "views/EstateAgents/EstateAgents.js";
+import Doubts from "views/Doubts/Doubts.js";
+import Properties from "views/Properties/Properties.js";
+import Settings from "views/Settings/Settings.js";
 // import NotificationsPage from "views/Notifications/Notifications.js";
-// import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
 // // core components/views for RTL layout
 // import RTLPage from "views/RTLPage/RTLPage.js";
-import EstateAgents from "views/EstateAgents/EstateAgents.js";
 
 const dashboardRoutes = [
   {
@@ -47,11 +49,75 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
+    path: "/properties",
+    name: "Propriedades",
+    rtlName: "لوحة القيادة",
+    icon: "home",
+    component: Properties,
+    layout: "/admin"
+  },
+  {
+    path: "/booking",
+    name: "Agendamentos",
+    rtlName: "لوحة القيادة",
+    icon: "event",
+    component: Booking,
+    layout: "/admin"
+  },
+  {
+    path: "/alerts",
+    name: "Alertas",
+    rtlName: "لوحة القيادة",
+    icon: "report",
+    component: Alerts,
+    layout: "/admin"
+  },
+  {
+    path: "/doubts",
+    name: "Dúvidas",
+    rtlName: "لوحة القيادة",
+    icon: "help",
+    component: Doubts,
+    layout: "/admin"
+  },
+  {
     path: "/estate-agents",
     name: "Corretores",
     rtlName: "قائمة الجدول",
-    icon: "group",
+    icon: "work",
     component: EstateAgents,
+    layout: "/admin"
+  },
+  {
+    path: "/doorman",
+    name: "Porteiros Parceiros",
+    rtlName: "لوحة القيادة",
+    icon: "perm_contact_calendar",
+    component: Doormans,
+    layout: "/admin"
+  },
+  {
+    path: "/users",
+    name: "Usuários",
+    rtlName: "قائمة الجدول",
+    icon: "group",
+    component: Users,
+    layout: "/admin"
+  },
+  {
+    path: "/maps",
+    name: "Localização",
+    rtlName: "خرائط",
+    icon: LocationOn,
+    component: Maps,
+    layout: "/admin"
+  },
+  {
+    path: "/settings",
+    name: "Configurações",
+    rtlName: "خرائط",
+    icon: "settings_applications",
+    component: Settings,
     layout: "/admin"
   }
   // {
@@ -84,14 +150,6 @@ const dashboardRoutes = [
   //   rtlName: "الرموز",
   //   icon: BubbleChart,
   //   component: Icons,
-  //   layout: "/admin"
-  // },
-  // {
-  //   path: "/maps",
-  //   name: "Maps",
-  //   rtlName: "خرائط",
-  //   icon: LocationOn,
-  //   component: Maps,
   //   layout: "/admin"
   // },
   // {

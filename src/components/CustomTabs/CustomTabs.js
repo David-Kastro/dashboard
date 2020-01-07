@@ -64,6 +64,11 @@ export default function CustomTabs(props) {
             );
           })}
         </Tabs>
+        {tabs.map((prop, key) =>
+          key === value && prop.caption ? (
+            <p className={classes.cardCategoryWhite}>{prop.caption}</p>
+          ) : null
+        )}
       </CardHeader>
       <CardBody>
         {tabs.map((prop, key) => {

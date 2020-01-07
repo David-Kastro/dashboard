@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import ListItem from "@material-ui/core/ListItem";
 import List from "@material-ui/core/List";
+import { NavLink } from 'react-router-dom';
 // core components
 import styles from "assets/jss/material-dashboard-react/components/footerStyle.js";
 
@@ -18,9 +19,12 @@ export default function Footer(props) {
         <div className={classes.left}>
           <List className={classes.list}>
             <ListItem className={classes.inlineBlock}>
-              <a href="#dashboard" className={classes.block}>
+              <NavLink
+                to={'dashboard'}
+                className={classes.block}
+              >
                 Dashboard
-              </a>
+              </NavLink>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
               <a href="#config" className={classes.block}>
