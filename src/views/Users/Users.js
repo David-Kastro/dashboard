@@ -48,9 +48,9 @@ export default function TableList() {
       <GridItem xs={12} sm={12} md={12}>
         <Card>
           <CardHeader color="primary">
-            <h4 className={classes.cardTitleWhite}>Corretores</h4>
+            <h4 className={classes.cardTitleWhite}>Usuários</h4>
             <p className={classes.cardCategoryWhite}>
-              Listagem dos corretores registrados no sistema.
+              Listagem dos Usuários registrados no sistema.
             </p>
           </CardHeader>
           <CardBody>
@@ -59,14 +59,16 @@ export default function TableList() {
               handleEdit={data => console.log(data)}
               tableHeaderColor="gray"
               tableHead={[
+                "Login",
                 "Nome",
                 "Telefone",
                 "E-mail",
-                "Possui Creci",
-                "Possui Veículo"
+                "Ativo",
+                "Previlégios de Adm?"
               ]}
               tableData={[
                 [
+                  "dakota",
                   "Dakota Rice",
                   "(61) 99999-9999",
                   "teste@gmail.com",
@@ -74,6 +76,7 @@ export default function TableList() {
                   false
                 ],
                 [
+                  "minerva",
                   "Minerva Hooper",
                   "(61) 99999-9999",
                   "teste@gmail.com",
@@ -81,32 +84,12 @@ export default function TableList() {
                   true
                 ],
                 [
+                  "sage",
                   "Sage Rodriguez",
                   "(61) 99999-9999",
                   "teste@gmail.com",
                   false,
                   false
-                ],
-                [
-                  "Philip Chaney",
-                  "(61) 99999-9999",
-                  "teste@gmail.com",
-                  true,
-                  false
-                ],
-                [
-                  "Doris Greene",
-                  "(61) 99999-9999",
-                  "teste@gmail.com",
-                  false,
-                  true
-                ],
-                [
-                  "Mason Porter",
-                  "(61) 99999-9999",
-                  "teste@gmail.com",
-                  true,
-                  true
                 ]
               ]}
             />

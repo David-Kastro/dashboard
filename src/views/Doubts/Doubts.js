@@ -48,9 +48,9 @@ export default function TableList() {
       <GridItem xs={12} sm={12} md={12}>
         <Card>
           <CardHeader color="primary">
-            <h4 className={classes.cardTitleWhite}>Corretores</h4>
+            <h4 className={classes.cardTitleWhite}>Dúvidas</h4>
             <p className={classes.cardCategoryWhite}>
-              Listagem dos corretores registrados no sistema.
+              Dúvidas recebidas de clientes.
             </p>
           </CardHeader>
           <CardBody>
@@ -58,55 +58,25 @@ export default function TableList() {
               handleCreate={data => console.log(data)}
               handleEdit={data => console.log(data)}
               tableHeaderColor="gray"
-              tableHead={[
-                "Nome",
-                "Telefone",
-                "E-mail",
-                "Possui Creci",
-                "Possui Veículo"
-              ]}
+              tableHead={["Nome", "Telefone", "E-mail", "Dúvida"]}
               tableData={[
                 [
                   "Dakota Rice",
                   "(61) 99999-9999",
                   "teste@gmail.com",
-                  true,
-                  false
+                  "não estou conseguindo falar nos telefones de vocês. quero informações sobre uma sala comercial que está alugando no edifício Central Park"
                 ],
                 [
                   "Minerva Hooper",
                   "(61) 99999-9999",
                   "teste@gmail.com",
-                  false,
-                  true
+                  "não estou conseguindo falar nos telefones de vocês. quero informações sobre uma sala comercial que está alugando no edifício Central Park"
                 ],
                 [
                   "Sage Rodriguez",
                   "(61) 99999-9999",
                   "teste@gmail.com",
-                  false,
-                  false
-                ],
-                [
-                  "Philip Chaney",
-                  "(61) 99999-9999",
-                  "teste@gmail.com",
-                  true,
-                  false
-                ],
-                [
-                  "Doris Greene",
-                  "(61) 99999-9999",
-                  "teste@gmail.com",
-                  false,
-                  true
-                ],
-                [
-                  "Mason Porter",
-                  "(61) 99999-9999",
-                  "teste@gmail.com",
-                  true,
-                  true
+                  "não estou conseguindo falar nos telefones de vocês. quero informações sobre uma sala comercial que está alugando no edifício Central Park"
                 ]
               ]}
             />

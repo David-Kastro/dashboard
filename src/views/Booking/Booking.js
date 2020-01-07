@@ -48,9 +48,9 @@ export default function TableList() {
       <GridItem xs={12} sm={12} md={12}>
         <Card>
           <CardHeader color="primary">
-            <h4 className={classes.cardTitleWhite}>Corretores</h4>
+            <h4 className={classes.cardTitleWhite}>Agendamentos</h4>
             <p className={classes.cardCategoryWhite}>
-              Listagem dos corretores registrados no sistema.
+              Listagem dos agendamentos de visitas.
             </p>
           </CardHeader>
           <CardBody>
@@ -59,54 +59,65 @@ export default function TableList() {
               handleEdit={data => console.log(data)}
               tableHeaderColor="gray"
               tableHead={[
-                "Nome",
+                "Data Agendamento",
+                "Dia/Hora",
+                "Propriedade",
+                "Nome do Reservante",
                 "Telefone",
                 "E-mail",
-                "Possui Creci",
-                "Possui Veículo"
+                "Encaixe",
+                "Horario de Encaixe"
               ]}
               tableData={[
                 [
-                  "Dakota Rice",
-                  "(61) 99999-9999",
-                  "teste@gmail.com",
+                  "11/03/2019",
+                  "ás 12:30, Dom.",
+                  "Ótima Kitnet/Studo em Samambaia",
+                  "Bruno Ferreira",
+                  "(61) 98288-6251",
+                  "brunolsferreira993@gmail.com",
                   true,
-                  false
+                  "Das 08:00 ás 16:45"
                 ],
                 [
-                  "Minerva Hooper",
-                  "(61) 99999-9999",
-                  "teste@gmail.com",
-                  false,
-                  true
-                ],
-                [
-                  "Sage Rodriguez",
-                  "(61) 99999-9999",
-                  "teste@gmail.com",
-                  false,
-                  false
-                ],
-                [
-                  "Philip Chaney",
-                  "(61) 99999-9999",
-                  "teste@gmail.com",
+                  "11/03/2019",
+                  "ás 12:30, Dom.",
+                  "Ótima Kitnet/Studo em Samambaia",
+                  "Bruno Ferreira",
+                  "(61) 98288-6251",
+                  "brunolsferreira993@gmail.com",
                   true,
-                  false
+                  "Das 08:00 ás 16:45"
                 ],
                 [
-                  "Doris Greene",
-                  "(61) 99999-9999",
-                  "teste@gmail.com",
-                  false,
-                  true
-                ],
-                [
-                  "Mason Porter",
-                  "(61) 99999-9999",
-                  "teste@gmail.com",
+                  "11/03/2019",
+                  "ás 12:30, Dom.",
+                  "Ótima Kitnet/Studo em Samambaia",
+                  "Bruno Ferreira",
+                  "(61) 98288-6251",
+                  "brunolsferreira993@gmail.com",
                   true,
-                  true
+                  "Das 08:00 ás 16:45"
+                ],
+                [
+                  "11/03/2019",
+                  "ás 12:30, Dom.",
+                  "Ótima Kitnet/Studo em Samambaia",
+                  "Bruno Ferreira",
+                  "(61) 98288-6251",
+                  "brunolsferreira993@gmail.com",
+                  true,
+                  "Das 08:00 ás 16:45"
+                ],
+                [
+                  "11/03/2019",
+                  "ás 12:30, Dom.",
+                  "Ótima Kitnet/Studo em Samambaia",
+                  "Bruno Ferreira",
+                  "(61) 98288-6251",
+                  "brunolsferreira993@gmail.com",
+                  true,
+                  "Das 08:00 ás 16:45"
                 ]
               ]}
             />

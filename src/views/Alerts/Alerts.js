@@ -48,9 +48,9 @@ export default function TableList() {
       <GridItem xs={12} sm={12} md={12}>
         <Card>
           <CardHeader color="primary">
-            <h4 className={classes.cardTitleWhite}>Corretores</h4>
+            <h4 className={classes.cardTitleWhite}>Alertas</h4>
             <p className={classes.cardCategoryWhite}>
-              Listagem dos corretores registrados no sistema.
+              Listagem de alertas criados.
             </p>
           </CardHeader>
           <CardBody>
@@ -59,54 +59,41 @@ export default function TableList() {
               handleEdit={data => console.log(data)}
               tableHeaderColor="gray"
               tableHead={[
-                "Nome",
-                "Telefone",
+                "Atendido",
+                "Atendido em",
+                "Tipo do imóvel",
                 "E-mail",
-                "Possui Creci",
-                "Possui Veículo"
+                "Valor",
+                "Área",
+                "Criado em"
               ]}
               tableData={[
                 [
-                  "Dakota Rice",
-                  "(61) 99999-9999",
-                  "teste@gmail.com",
-                  true,
-                  false
-                ],
-                [
-                  "Minerva Hooper",
-                  "(61) 99999-9999",
-                  "teste@gmail.com",
                   false,
-                  true
+                  "",
+                  "Residencial",
+                  "onpimae@gmail.com",
+                  "R$500,00 à R$2000,00",
+                  "20m² à 600m²",
+                  "14/05/2019, às 08:49:27"
                 ],
                 [
-                  "Sage Rodriguez",
-                  "(61) 99999-9999",
-                  "teste@gmail.com",
-                  false,
-                  false
-                ],
-                [
-                  "Philip Chaney",
-                  "(61) 99999-9999",
-                  "teste@gmail.com",
                   true,
-                  false
+                  "14/05/2019, às 08:49:27",
+                  "Residencial",
+                  "onpimae@gmail.com",
+                  "R$500,00 à R$2000,00",
+                  "20m² à 600m²",
+                  "14/05/2019, às 08:49:27"
                 ],
                 [
-                  "Doris Greene",
-                  "(61) 99999-9999",
-                  "teste@gmail.com",
                   false,
-                  true
-                ],
-                [
-                  "Mason Porter",
-                  "(61) 99999-9999",
-                  "teste@gmail.com",
-                  true,
-                  true
+                  "",
+                  "Residencial",
+                  "onpimae@gmail.com",
+                  "R$500,00 à R$2000,00",
+                  "20m² à 600m²",
+                  "14/05/2019, às 08:49:27"
                 ]
               ]}
             />
