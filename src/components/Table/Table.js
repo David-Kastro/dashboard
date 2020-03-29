@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
@@ -9,6 +9,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
+import Typography from '@material-ui/core/Typography';
+import LinearProgress from '@material-ui/core/LinearProgress';
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -38,14 +40,23 @@ export default function CustomTable(props) {
     tableData,
     tableHeaderColor,
     handleEdit,
-    handleCreate
+    handleCreate,
+    loading
   } = props;
-  const getBoolResult = bool =>
-    bool ? (
-      <span className={classes.booleanTrue}>Sim</span>
-    ) : (
-      <span className={classes.booleanFalse}>Não</span>
-    );
+
+  const parseValue = val => {
+    if( typeof val === 'boolean' ) {
+      return val ? (
+        <span className={classes.booleanTrue}>Sim</span>
+      ) : (
+        <span className={classes.booleanFalse}>Não</span>
+      );
+    }
+
+    return val
+  }
+
+  const isLoading = useMemo(() => loading ? loading : false, [loading])
 
   const handleClickOpen = (data, type) => {
     setEditValues(data);
@@ -65,6 +76,7 @@ export default function CustomTable(props) {
           Novo Registro
         </Button>
       ) : null}
+      
       <Table className={classes.table}>
         {tableHead !== undefined ? (
           <TableHead className={classes[tableHeaderColor + "TableHeader"]}>
@@ -89,61 +101,76 @@ export default function CustomTable(props) {
             </TableRow>
           </TableHead>
         ) : null}
-        <TableBody>
-          {tableData.map((prop, key) => {
-            return (
-              <TableRow key={key} className={classes.tableBodyRow}>
-                {prop.map((prop, key) => {
-                  return (
-                    <TableCell className={classes.tableCell} key={key}>
-                      {typeof prop === "boolean" ? getBoolResult(prop) : prop}
-                    </TableCell>
-                  );
-                })}
-                {handleEdit ? (
-                  <TableCell className={classes.tableCell}>
-                    <Tooltip
-                      id="tooltip-top"
-                      title="Editar registro"
-                      placement="top"
-                      classes={{ tooltip: classes.tooltip }}
-                    >
-                      <IconButton
-                        aria-label="Edit"
-                        className={classes.tableActionButton}
-                        onClick={() => handleClickOpen(prop, "edit")}
-                      >
-                        <Edit
-                          className={
-                            classes.tableActionButtonIcon + " " + classes.edit
-                          }
-                        />
-                      </IconButton>
-                    </Tooltip>
-                    <Tooltip
-                      id="tooltip-top-start"
-                      title="Excluir registro"
-                      placement="top"
-                      classes={{ tooltip: classes.tooltip }}
-                    >
-                      <IconButton
-                        aria-label="Delete"
-                        className={classes.tableActionButton}
-                      >
-                        <Delete
-                          className={
-                            classes.tableActionButtonIcon + " " + classes.close
-                          }
-                        />
-                      </IconButton>
-                    </Tooltip>
-                  </TableCell>
-                ) : null}
+        {isLoading ? (
+          <td colSpan={tableHead.length + 1}>
+            <LinearProgress color="secondary" />
+          </td>
+        ) : (
+          <TableBody>
+            {tableData.length ? (
+              tableData.map((prop, key) => {
+                return (
+                  <TableRow key={key} className={classes.tableBodyRow}>
+                    {prop.map((prop, key) => {
+                      return (
+                        <TableCell className={classes.tableCell} key={key}>
+                          {parseValue(prop)}
+                        </TableCell>
+                      );
+                    })}
+                    {handleEdit ? (
+                      <TableCell className={classes.tableCell}>
+                        <Tooltip
+                          id="tooltip-top"
+                          title="Editar registro"
+                          placement="top"
+                          classes={{ tooltip: classes.tooltip }}
+                        >
+                          <IconButton
+                            aria-label="Edit"
+                            className={classes.tableActionButton}
+                            onClick={() => handleClickOpen(prop, "edit")}
+                          >
+                            <Edit
+                              className={
+                                classes.tableActionButtonIcon + " " + classes.edit
+                              }
+                            />
+                          </IconButton>
+                        </Tooltip>
+                        <Tooltip
+                          id="tooltip-top-start"
+                          title="Excluir registro"
+                          placement="top"
+                          classes={{ tooltip: classes.tooltip }}
+                        >
+                          <IconButton
+                            aria-label="Delete"
+                            className={classes.tableActionButton}
+                          >
+                            <Delete
+                              className={
+                                classes.tableActionButtonIcon + " " + classes.close
+                              }
+                            />
+                          </IconButton>
+                        </Tooltip>
+                      </TableCell>
+                    ) : null}
+                  </TableRow>
+                );
+              })
+            ) : (
+              <TableRow className={classes.tableBodyRow}>
+                <TableCell className={classes.tableCell} colSpan={tableHead.length + 1}>
+                  <Typography className={classes.tableHeadCell} align="center">Nenhum registro encontrado!</Typography>
+                </TableCell>
               </TableRow>
-            );
-          })}
-        </TableBody>
+            )}
+          </TableBody>
+        )}
       </Table>
+
       <Dialog
         open={open}
         onClose={handleClose}
@@ -158,26 +185,17 @@ export default function CustomTable(props) {
           </DialogContentText> */}
           <GridContainer>
             {tableHead.map((prop, key) =>
-              typeof tableData[0][key] === "boolean" ? (
-                <GridItem key={prop + key} xs={12} sm={12} md={12}>
-                  <FormControlLabel
-                    control={<Switch checked={editValues[key]} value="sim" />}
-                    label={prop}
-                  />
-                </GridItem>
-              ) : (
-                <GridItem key={prop + key} xs={12} sm={12} md={6}>
-                  <CustomInput
-                    labelText={prop}
-                    formControlProps={{
-                      fullWidth: true
-                    }}
-                    inputProps={{
-                      value: editValues[key]
-                    }}
-                  />
-                </GridItem>
-              )
+              <GridItem key={prop + key} xs={12} sm={12} md={6}>
+                <CustomInput
+                  labelText={prop}
+                  formControlProps={{
+                    fullWidth: true
+                  }}
+                  inputProps={{
+                    value: editValues[key]
+                  }}
+                />
+              </GridItem>
             )}
           </GridContainer>
         </DialogContent>
